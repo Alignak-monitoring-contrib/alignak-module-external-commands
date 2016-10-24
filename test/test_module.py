@@ -269,7 +269,7 @@ class TestModules(AlignakTest):
         self.assert_log_match(
             re.escape("configuration, getting external commands from: /tmp/alignak.cmd"), 1)
 
-    def test_module_start_parameters_1(self):
+    def test_module_start_parameters(self):
         """
         Test the module initialization function, no parameters, provide parameters
         :return:
@@ -303,7 +303,7 @@ class TestModules(AlignakTest):
             re.escape("configuration, getting external commands "
                       "from: /tmp/my_external_commands_file"), 1)
 
-    @unittest2.skip("Not testable ... I did not succeeded :/")
+    # @unittest2.skip("Not testable ... I did not succeeded :/")
     def test_module_zzz_exist_command_file(self):
         """
         Test the module log collection functions
