@@ -304,10 +304,10 @@ class TestModules(AlignakTest):
             re.escape("configuration, getting external commands "
                       "from: /tmp/my_external_commands_file"), 1)
 
-    # @unittest2.skip("Not testable ... I did not succeeded :/")
+    @unittest2.skip("Not testable ... I did not succeeded :/")
     def test_module_zzz_exist_command_file(self):
         """
-        Test the module log collection functions
+        Test the module external commands file creation
         :return:
         """
         self.print_header()
@@ -342,8 +342,18 @@ class TestModules(AlignakTest):
 
         my_module = self.modulemanager.instances[0]
 
+        # Clear logs
+        self.clear_logs()
+
         # Start external modules
         self.modulemanager.start_external_instances()
+
+        # Starting external module logs
+        self.assert_log_match("Trying to initialize module: external-commands", 0)
+        self.assert_log_match("Starting external module external-commands", 1)
+        self.assert_log_match("Starting external process for module external-commands", 2)
+        self.assert_log_match("external-commands is now started", 3)
+        self.assert_log_match("Process for module external-commands is now running", 4)
 
         # Check alive
         self.assertIsNotNone(my_module.process)
