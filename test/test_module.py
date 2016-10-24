@@ -304,7 +304,9 @@ class TestModules(AlignakTest):
             re.escape("configuration, getting external commands "
                       "from: /tmp/my_external_commands_file"), 1)
 
-    @unittest2.skip("Not testable ... I did not succeeded :/")
+    @unittest2.skip("Not testable ... I did not succeeded :/ "
+                    "Probably because the launched process is not started correctly ... "
+                    "but it is ok out of unit tests!")
     def test_module_zzz_exist_command_file(self):
         """
         Test the module external commands file creation
