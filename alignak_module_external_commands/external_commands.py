@@ -18,8 +18,9 @@
 # along with Alignak.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
+
 """
-This module is an Alignak Receiver module that collects the external commands and build 
+This module is an Alignak Receiver module that collects the external commands and builds
 an external command object for the Alignak scheduler.
 """
 
@@ -41,7 +42,7 @@ properties = {
     'type': 'external-commands',
     'external': True,
     'phases': ['running'],
-    }
+}
 
 
 def get_instance(mod_conf):
@@ -169,7 +170,7 @@ class ExternalCommandsCollector(BaseModule):
 
             inputready = []
             try:
-                inputready, outputready, exceptready = select.select(readings, [], [], 1)
+                inputready, _, _ = select.select(readings, [], [], 1)
             except select.error, e:
                 if e.args[0] == errno.EINTR:
                     os.unlink(self.file_path)
