@@ -24,6 +24,7 @@ Test the module
 
 import re
 import os
+import stat
 import time
 import unittest2
 
@@ -350,8 +351,9 @@ class TestModules(AlignakTest):
 
         time.sleep(5)
 
-        # The module created an external commands file
-        self.assertTrue(os.path.exists('/tmp/alignak.cmd'))
+        # The module created an external commands file linked to a named pipe
+        # self.assertTrue(os.path.exists('/tmp/alignak.cmd'))
+        self.assertTrue(stat.S_ISFIFO(os.stat('/tmp/alignak.cmd').st_mode))
 
         # Get log file that should contain one line
         with open('/tmp/alignak.cmd', 'r') as f:
