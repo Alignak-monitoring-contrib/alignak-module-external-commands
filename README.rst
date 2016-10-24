@@ -20,7 +20,8 @@ Build status (development release)
 Short description
 -----------------
 
-This module is an example skeleton to build Alignak modules ...
+This module for Alignak opens a commands file as a named pipe and regularly reads the content of this file to interpret as external commands that are forwarded to the Alignak framework.
+
 
 
 Installation
