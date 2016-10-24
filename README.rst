@@ -6,8 +6,8 @@ Alignak External commands Module
 Build status (stable release)
 -----------------------------
 
-.. image:: https://travis-ci.org/Alignak-monitoring/alignak-module-external-commands.svg?branch=master
-    :target: https://travis-ci.org/Alignak-monitoring/alignak-module-external-commands
+.. image:: https://travis-ci.org/Alignak-monitoring-contrib/alignak-module-external-commands.svg?branch=master
+    :target: https://travis-ci.org/Alignak-monitoring-contrib/alignak-module-external-commands
 
 
 Build status (development release)
