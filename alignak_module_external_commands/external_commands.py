@@ -125,7 +125,7 @@ class ExternalCommandsCollector(BaseModule):
         """
         bytes_read = os.read(self.file_descriptor, 8096)
         commands = []
-        full_buffer = len(bytes_read) == 8096 and True or False
+        full_buffer = True if len(bytes_read) == 8096 else False
 
         # If the buffer ended with a partial command, prepend it here...
         bytes_read = self.parts + bytes_read
