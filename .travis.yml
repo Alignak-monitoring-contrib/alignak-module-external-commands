@@ -20,3 +20,24 @@ script:
   - cd test
   - nosetests -xv --process-restartworker test_module.py
   - cd ..
+
+after_success:
+  - ./package.sh $TRAVIS_BRANCH $TRAVIS_PYTHON_VERSION
+
+deploy:
+  - provider: bintray
+    skip_cleanup: true
+    file: .bintray.json
+    user: ddurieux
+    key:
+      secure: "SBuKr7re/voLUdbO4zowpEA1w7pGezamRNIS94DDyYO3y26bSSLkPl3G6gnHRU/c6M+UwIfF4NM/IIDvTqCkrHBVG0iCxDnOLFVoSOfd23Phw8OT8JxfOd23vQaKv5i9eEUJZyk1+vCqM112sVCO++fqjPiGcBZs8NtsoI411dman3uzgaUkTVE2M+BL3sgr6AT/HBOwz5NtRQfn/NmLpqMkfp8/gg8URSL560ehi+//JsDkiFhhvW656HJH3+klWiRocbHKAncfifxSimXT23+4xi9KElzuLpkvgCEj1QaPSvJ/JVD9vCI1k8bZpNFmqlnF8nYKaSnj05eM+S5bZy0ozml+PDeyWQFP3BS3EMw8MGoEBhNblRBWorUdLr2E+alt1Iw+2v7c8gHnnJFYOJ7kM6m1GJs8oUd2M4vUlODyf2Cdx1eZXNMh4uZEwLHRn0Hw6/QNYh9dwm44ChVHpwrt6BCPuyHpuLmcZ1IbhMfDLzpWCc0HREhAza/0klD3CErOgIGlq45OwK9pQjsD9fj4HP1HrAiXzwNv8QPxJjvQOZqPmxBGt9pLnJfr3EuIDAxXCbha4xcpCO8QQoFF5Fo6vbymA58pahy0B0eThUxfQ3UYXHPtRCxPAKFi9gJJdb/Cz5qYOCMUYv+Eqg4kZCTp23TB50qHmPOo79CsMX4="
+    on:
+      branch: develop
+  - provider: bintray
+    skip_cleanup: true
+    file: .bintray.json
+    user: ddurieux
+    key:
+      secure: "SBuKr7re/voLUdbO4zowpEA1w7pGezamRNIS94DDyYO3y26bSSLkPl3G6gnHRU/c6M+UwIfF4NM/IIDvTqCkrHBVG0iCxDnOLFVoSOfd23Phw8OT8JxfOd23vQaKv5i9eEUJZyk1+vCqM112sVCO++fqjPiGcBZs8NtsoI411dman3uzgaUkTVE2M+BL3sgr6AT/HBOwz5NtRQfn/NmLpqMkfp8/gg8URSL560ehi+//JsDkiFhhvW656HJH3+klWiRocbHKAncfifxSimXT23+4xi9KElzuLpkvgCEj1QaPSvJ/JVD9vCI1k8bZpNFmqlnF8nYKaSnj05eM+S5bZy0ozml+PDeyWQFP3BS3EMw8MGoEBhNblRBWorUdLr2E+alt1Iw+2v7c8gHnnJFYOJ7kM6m1GJs8oUd2M4vUlODyf2Cdx1eZXNMh4uZEwLHRn0Hw6/QNYh9dwm44ChVHpwrt6BCPuyHpuLmcZ1IbhMfDLzpWCc0HREhAza/0klD3CErOgIGlq45OwK9pQjsD9fj4HP1HrAiXzwNv8QPxJjvQOZqPmxBGt9pLnJfr3EuIDAxXCbha4xcpCO8QQoFF5Fo6vbymA58pahy0B0eThUxfQ3UYXHPtRCxPAKFi9gJJdb/Cz5qYOCMUYv+Eqg4kZCTp23TB50qHmPOo79CsMX4="
+    on:
+      tags: true
