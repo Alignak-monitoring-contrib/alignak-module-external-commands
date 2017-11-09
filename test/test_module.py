@@ -117,9 +117,9 @@ class TestModules(AlignakTest):
         self.assert_any_log_match(re.escape(
             "Loaded Python module 'alignak_module_external_commands' (external-commands)"
         ))
-        self.assert_any_log_match(re.escape(
-            "Give an instance of alignak_module_external_commands for alias: external-commands"
-        ))
+        # self.assert_any_log_match(re.escape(
+        #     "Give an instance of alignak_module_external_commands for alias: external-commands"
+        # ))
 
         my_module = self.modulemanager.instances[0]
 
