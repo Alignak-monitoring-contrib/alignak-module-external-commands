@@ -1,6 +1,9 @@
 Alignak External commands Module
 ================================
 
+**Note** that this module is not yet tested with the most recent (> 2) version of Alignak.
+-----
+
 *Alignak external commands module*
 
 .. image:: https://travis-ci.org/Alignak-monitoring-contrib/alignak-module-external-commands.svg?branch=develop
